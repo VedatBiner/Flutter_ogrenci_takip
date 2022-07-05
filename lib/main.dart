@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'models/student.dart';
+import 'screens/student_add.dart';
 
 void main() {
   runApp(MaterialApp(home: MyApp()));
@@ -75,21 +76,21 @@ class _MyAppState extends State<MyApp> {
               fit: FlexFit.tight,
               flex: 2,
               child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.greenAccent,
-                    onPrimary: Colors.black,
-                  ),
-                  child: Row(
-                    children: const [
-                      Icon(Icons.add),
-                      SizedBox(width: 5.0),
-                      Text("Yeni Öğrenci"),
-                    ],
-                  ),
-                  onPressed: () {
-                    var mesaj = "Eklendi";
-                    mesajGoster(context, mesaj);
-                  }),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.greenAccent,
+                  onPrimary: Colors.black,
+                ),
+                child: Row(
+                  children: const [
+                    Icon(Icons.add),
+                    SizedBox(width: 5.0),
+                    Text("Yeni Öğrenci"),
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentAdd()));
+                }
+              ),
             ),
             Flexible(
               fit: FlexFit.tight,
