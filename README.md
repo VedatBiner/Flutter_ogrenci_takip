@@ -9,3 +9,5 @@ Burada öğrencilerin ad soyad ve notları ile geçip kalma durumları ve ikonla
 leading ile öğrencilere resim eklendi.
 tıklanınca öğrencinin ad soyadı konsola yazıldı.
 getter eklenip, sınav sonuçlarının otomatik güncellenmesi yapıldı.
+statelessWidget statefulwidget dönüşümü yapıldı.
+Alt bölüme üç renkli buton eklendi

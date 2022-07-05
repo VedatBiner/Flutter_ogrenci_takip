@@ -86,14 +86,71 @@ class _MyAppState extends State<MyApp> {
             }
           )
         ),
-        Text("Seçili Öğrenci : " + seciliOgrenci),
-        Center(
-          child: ElevatedButton(
-            child: const Text("Sonucu Gör"),
-              onPressed: () {
-                var mesaj = sinavHesapla(55);
-                mesajGoster(context, mesaj);
-              })),
+        Text("Seçili Öğrenci : $seciliOgrenci"),
+        Row(
+          children: [
+            Flexible(
+              fit: FlexFit.tight,
+              flex: 2,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.greenAccent,
+                  onPrimary: Colors.black,
+                ),
+                child: Row(
+                  children: const [
+                    Icon(Icons.add),
+                    SizedBox(width: 5.0),
+                    Text("Yeni Öğrenci"),
+                  ],
+                ),
+                  onPressed: () {
+                    var mesaj = sinavHesapla(55);
+                    mesajGoster(context, mesaj);
+                  }),
+            ),
+            Flexible(
+              fit: FlexFit.tight,
+              flex: 2,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.amberAccent,
+                    onPrimary: Colors.black,
+                  ),
+                  child: Row(
+                    children: const [
+                      Icon(Icons.update),
+                      SizedBox(width: 5.0),
+                      Text("Güncelle"),
+                    ],
+                  ),
+                  onPressed: () {
+                    var mesaj = sinavHesapla(55);
+                    mesajGoster(context, mesaj);
+                  }),
+            ),
+            Flexible(
+              fit: FlexFit.tight,
+              flex: 1,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.redAccent,
+                    onPrimary: Colors.black,
+                  ),
+                  child: Row(
+                    children: const [
+                      Icon(Icons.delete),
+                      SizedBox(width: 5.0),
+                      Text("Sil"),
+                    ],
+                  ),
+                  onPressed: () {
+                    var mesaj = sinavHesapla(55);
+                    mesajGoster(context, mesaj);
+                  }),
+            ),
+          ],
+        ),
       ],
     );
   }
