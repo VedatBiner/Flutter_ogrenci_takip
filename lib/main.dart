@@ -33,20 +33,6 @@ class _MyAppState extends State<MyApp> {
       body: buildBody(context),
     );
   }
-/*
-  String sinavHesapla(int puan) {
-    String mesaj = "";
-    if (puan >= 50) {
-      mesaj = "Geçti";
-    } else if (puan >= 40) {
-      mesaj = "Bütünlemeye kaldı";
-    } else {
-      mesaj = "Kaldı";
-    }
-    return mesaj;
-  }
-
- */
 
   void mesajGoster(BuildContext context, String mesaj) {
     var alert = AlertDialog(

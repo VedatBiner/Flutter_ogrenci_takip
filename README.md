@@ -15,10 +15,13 @@ Alt bölüme üç renkli buton eklendi
 Silme işlemini de tamamladık.
 
 Başlangıç Görüntüsü
+<BR>
 ![ScreenShot](/screen_shots/img-01.png)
 
 Silinme mesajı
+<BR>
 ![ScreenShot](/screen_shots/img-02.png)
 
 Güncel Liste
+<BR>
 ![ScreenShot](/screen_shots/img-03.png)
