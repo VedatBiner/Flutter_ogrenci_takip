@@ -2,7 +2,10 @@
 BTK Akademi flutter Eğitimi
 
 Öğrenci Takip Projesi
-Listview.builder ile dinamik liste alındı.
+<BR>
+* Listview.builder ile dinamik liste alındı.
+
+
 Sonuç hesaplama işlemi ve sonuç mesajı ayrı bir fonksiyona çevrildi.
 BuildBody fonksiyonu ile column içinde yer alan liste ve buton ayrı bir widget olarak tanımlandı.
 student.dart dosyası ile models dizini altında bir öğrenci class oluşturuldu.
@@ -13,6 +16,7 @@ getter eklenip, sınav sonuçlarının otomatik güncellenmesi yapıldı.
 statelessWidget statefulwidget dönüşümü yapıldı.
 Alt bölüme üç renkli buton eklendi
 Silme işlemini de tamamladık.
+Ekleme düğmesine navigasyon ile yeni ekrana geçiş eklendi
 
 Başlangıç Görüntüsü
 <BR>
