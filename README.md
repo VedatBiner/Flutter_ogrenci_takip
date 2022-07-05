@@ -12,14 +12,10 @@ BTK Akademi flutter Eğitimi
 * tıklanan öğrencinin ad soyadı konsola yazıldı.
 * getter eklenip, sınav sonuçlarının otomatik güncellenmesi yapıldı.
 * statelessWidget statefulwidget dönüşümü yapıldı.
-
-
-
-
-
-Alt bölüme üç renkli buton eklendi
-Silme işlemini de tamamladık.
-Ekleme düğmesine navigasyon ile yeni ekrana geçiş eklendi
+* Alt bölüme üç renkli buton eklendi.
+* Silme butonu ile silme işlemi yapıldı.
+* Ekleme Ekleme düğmesine navigasyon ile yeni ekrana geçiş eklendi
+<BR>
 
 Başlangıç Görüntüsü
 <BR>
