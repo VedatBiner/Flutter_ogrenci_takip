@@ -9,10 +9,10 @@ class MyApp extends StatelessWidget {
   String mesaj = "Öğrenci Takip Sistemi";
 
   List<Student> students = [
-    Student("Vedat", "Biner", 25, "Kaldı"),
-    Student("Mehmet", "Biner", 65, "Geçti"),
-    Student("Zeynep", "Biner", 45, "Bütünlemeye kaldı"),
-    Student("Sevim", "Biner", 70, "Geçti")
+    Student("Vedat", "Biner", 25),
+    Student("Mehmet", "Biner", 65),
+    Student("Zeynep", "Biner", 45),
+    Student("Sevim", "Biner", 70)
   ];
 
   MyApp({Key? key}) : super(key: key);
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
                   "${students[index].firstName} ${students[index].lastName}"
                 ),
                 subtitle: Text(
-                  "Sınavdan aldığı not : ${students[index].grade.toString()}"
+                  "Sınavdan aldığı not : ${students[index].grade.toString()} [${students[index].getStatus}]"
                 ),
                 trailing: buildStatusIcon(students[index].grade),
                 onTap: (){
@@ -91,7 +91,7 @@ class MyApp extends StatelessWidget {
     } else if (grade >= 40) {
       return const Icon(Icons.album);
     } else {
-      return Icon(Icons.clear);
+      return const Icon(Icons.clear);
     }
   }
 }

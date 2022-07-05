@@ -8,3 +8,4 @@ student.dart dosyası ile models dizini altında bir öğrenci class oluşturuld
 Burada öğrencilerin ad soyad ve notları ile geçip kalma durumları ve ikonları görüntülendi.
 leading ile öğrencilere resim eklendi.
 tıklanınca öğrencinin ad soyadı konsola yazıldı.
+getter eklenip, sınav sonuçlarının otomatik güncellenmesi yapıldı.
