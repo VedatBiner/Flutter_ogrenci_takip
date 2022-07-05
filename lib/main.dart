@@ -6,7 +6,6 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-
   MyApp({Key? key}) : super(key: key);
 
   @override
@@ -16,13 +15,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String mesaj = "Öğrenci Takip Sistemi";
 
-  String seciliOgrenci = "abc";
+  Student selectedStudent = Student.withId(0, "", "", 0);
 
   List<Student> students = [
-    Student("Vedat", "Biner", 25),
-    Student("Mehmet", "Biner", 65),
-    Student("Zeynep", "Biner", 45),
-    Student("Sevim", "Biner", 70)
+    Student.withId(1, "Vedat", "Biner", 25),
+    Student.withId(2, "Mehmet", "Biner", 65),
+    Student.withId(3, "Zeynep", "Biner", 45),
+    Student.withId(4, "Sevim", "Biner", 70)
   ];
 
   @override
@@ -34,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       body: buildBody(context),
     );
   }
-
+/*
   String sinavHesapla(int puan) {
     String mesaj = "";
     if (puan >= 50) {
@@ -47,9 +46,11 @@ class _MyAppState extends State<MyApp> {
     return mesaj;
   }
 
+ */
+
   void mesajGoster(BuildContext context, String mesaj) {
     var alert = AlertDialog(
-      title: const Text("Sınav Sonucu"),
+      title: const Text("İşlem Sonucu"),
       content: Text(mesaj),
     );
     showDialog(context: context, builder: (BuildContext context) => alert);
@@ -59,53 +60,48 @@ class _MyAppState extends State<MyApp> {
     return Column(
       children: [
         Expanded(
-          child: ListView.builder(
-            // Builder eleman sayısı kadar listeleme yapacak
-            itemCount: students.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                leading: const CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    "https://cdn.pixabay.com/photo/2016/11/29/22/02/white-male-1871436_960_720.jpg"
-                  ),
-                ),
-                title: Text(
-                  "${students[index].firstName} ${students[index].lastName}"
-                ),
-                subtitle: Text(
-                  "Sınavdan aldığı not : ${students[index].grade.toString()} [${students[index].getStatus}]"
-                ),
-                trailing: buildStatusIcon(students[index].grade),
-                onTap: (){
-                  setState((){
-                    seciliOgrenci = "${students[index].firstName} ${students[index].lastName}";
-                  });
-                  print("${students[index].firstName} ${students[index].lastName}");
-                },
-              );
-            }
-          )
-        ),
-        Text("Seçili Öğrenci : $seciliOgrenci"),
+            child: ListView.builder(
+                // Builder eleman sayısı kadar listeleme yapacak
+                itemCount: students.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
+                    leading: const CircleAvatar(
+                      backgroundImage: NetworkImage(
+                          "https://cdn.pixabay.com/photo/2016/11/29/22/02/white-male-1871436_960_720.jpg"),
+                    ),
+                    title: Text(
+                        "${students[index].firstName} ${students[index].lastName}"),
+                    subtitle: Text(
+                        "Sınavdan aldığı not : ${students[index].grade.toString()} [${students[index].getStatus}]"),
+                    trailing: buildStatusIcon(students[index].grade),
+                    onTap: () {
+                      setState(() {
+                        selectedStudent = students[index];
+                      });
+                      print(selectedStudent.firstName);
+                    },
+                  );
+                })),
+        Text("Seçili Öğrenci : ${selectedStudent.firstName} ${selectedStudent.lastName}"),
         Row(
           children: [
             Flexible(
               fit: FlexFit.tight,
               flex: 2,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.greenAccent,
-                  onPrimary: Colors.black,
-                ),
-                child: Row(
-                  children: const [
-                    Icon(Icons.add),
-                    SizedBox(width: 5.0),
-                    Text("Yeni Öğrenci"),
-                  ],
-                ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.greenAccent,
+                    onPrimary: Colors.black,
+                  ),
+                  child: Row(
+                    children: const [
+                      Icon(Icons.add),
+                      SizedBox(width: 5.0),
+                      Text("Yeni Öğrenci"),
+                    ],
+                  ),
                   onPressed: () {
-                    var mesaj = sinavHesapla(55);
+                    var mesaj = "Eklendi";
                     mesajGoster(context, mesaj);
                   }),
             ),
@@ -125,7 +121,7 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   onPressed: () {
-                    var mesaj = sinavHesapla(55);
+                    var mesaj = "Güncellendi";
                     mesajGoster(context, mesaj);
                   }),
             ),
@@ -145,7 +141,10 @@ class _MyAppState extends State<MyApp> {
                     ],
                   ),
                   onPressed: () {
-                    var mesaj = sinavHesapla(55);
+                    setState (() {
+                      students.remove(selectedStudent);
+                    });
+                    var mesaj = "Silindi : ${selectedStudent.firstName} ${selectedStudent.lastName}";
                     mesajGoster(context, mesaj);
                   }),
             ),

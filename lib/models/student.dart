@@ -1,10 +1,13 @@
 class Student{
+  late int id;
   String firstName;
   String lastName;
   int grade;
-  // String _status;
 
   //Constructor oluşturalım
+  Student.withId(this.id, this.firstName, this.lastName, this.grade);
+
+  // id vermeden Constructor oluşturalım
   Student(this.firstName, this.lastName, this.grade);
 
   // getter kullanılıyor
