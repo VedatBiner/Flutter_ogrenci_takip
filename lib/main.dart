@@ -5,8 +5,18 @@ void main() {
   runApp(MaterialApp(home: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   String mesaj = "Öğrenci Takip Sistemi";
+
+  String seciliOgrenci = "abc";
 
   List<Student> students = [
     Student("Vedat", "Biner", 25),
@@ -15,7 +25,6 @@ class MyApp extends StatelessWidget {
     Student("Sevim", "Biner", 70)
   ];
 
-  MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,12 +77,16 @@ class MyApp extends StatelessWidget {
                 ),
                 trailing: buildStatusIcon(students[index].grade),
                 onTap: (){
+                  setState((){
+                    seciliOgrenci = "${students[index].firstName} ${students[index].lastName}";
+                  });
                   print("${students[index].firstName} ${students[index].lastName}");
                 },
               );
             }
           )
         ),
+        Text("Seçili Öğrenci : " + seciliOgrenci),
         Center(
           child: ElevatedButton(
             child: const Text("Sonucu Gör"),
