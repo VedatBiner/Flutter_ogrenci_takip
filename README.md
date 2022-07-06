@@ -14,7 +14,8 @@ BTK Akademi flutter Eğitimi
 * statelessWidget statefulwidget dönüşümü yapıldı.
 * Alt bölüme üç renkli buton eklendi.
 * Silme butonu ile silme işlemi yapıldı.
-* Ekleme Ekleme düğmesine navigasyon ile yeni ekrana geçiş eklendi
+* Ekleme düğmesine navigasyon ile yeni ekrana geçiş eklendi.
+* form sayfası ve validasyon kodu düzenlendi.
 <BR>
 
 Başlangıç Görüntüsü
@@ -28,3 +29,7 @@ Silinme mesajı
 Güncel Liste
 <BR>
 ![ScreenShot](/screen_shots/img-03.png)
+
+Hatalı giriş yapılınca validasyon çalışıp hatalarımızı iletiyor.
+<BR>
+![ScreenShot](/screen_shots/img-04.png)
