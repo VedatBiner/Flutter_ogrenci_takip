@@ -1,7 +1,7 @@
 # flutter_ogrenci_takip
 BTK Akademi flutter Eğitimi
 
-Öğrenci Takip Projesi
+Öğrenci Takip Projesi (Hatalar var)
 <BR>
 * Listview.builder ile dinamik liste alındı.
 * Sonuç hesaplama işlemi ve sonuç mesajı ayrı bir fonksiyona çevrildi.
@@ -16,6 +16,9 @@ BTK Akademi flutter Eğitimi
 * Silme butonu ile silme işlemi yapıldı.
 * Ekleme düğmesine navigasyon ile yeni ekrana geçiş eklendi.
 * form sayfası ve validasyon kodu düzenlendi.
+* Güncelleme kodu eklendi
+* Ekleme yapmıyor. Liste güncelenmiyor.
+* Güncelleme yapmıyor. Ekleme ile benzer kod kullandığı için eklemedeki hata düzelirse burası da düzelebilir?
 <BR>
 
 Başlangıç Görüntüsü

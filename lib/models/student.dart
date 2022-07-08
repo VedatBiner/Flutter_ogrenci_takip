@@ -11,15 +11,14 @@ class Student{
   Student(this.firstName, this.lastName, this.grade);
 
   //basit bir class hiç bir bilgi içermiyor.
-  Student.withoutInfo(){
-  }
+  Student.withoutInfo();
 
   // getter kullanılıyor
   String get getStatus{
     String message = "";
     if (grade >= 50) {
       message = "Geçti";
-    } else if (grade >= 40) {
+    } else if (grade > 40) {
       message = "Bütünlemeye kaldı";
     } else {
       message = "Kaldı";

@@ -3,15 +3,22 @@ import 'package:flutter_ogrenci_takip/validation/student_validator.dart';
 import '../models/student.dart';
 
 class StudentAdd extends StatefulWidget {
-  const StudentAdd({Key? key}) : super(key: key);
+  List<Student> students;
+  StudentAdd(this.students, {Key? key}) : super(key: key);
 
   @override
-  _StudentAddState createState() => _StudentAddState();
+  _StudentAddState createState() => _StudentAddState(students);
 }
 
 class _StudentAddState extends State with StudentValidationMixin {
+  // bu şekilde olabilir mi ?  : class _StudentAddState extends State<StudentAdd> {
+  late List<Student> students; // Burası olmayabilir
   var student = Student.withoutInfo();
+  // var student = Student ("", "", 0); bu şekilde de olabilir.
   var formKey = GlobalKey<FormState>();
+
+  _StudentAddState(this.students);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,10 +88,12 @@ class _StudentAddState extends State with StudentValidationMixin {
     return ElevatedButton(
       child: const Text("Kaydet"),
       onPressed: (){
-        if(formKey.currentState!.validate()){
+        if(!formKey.currentState!.validate()){
           // true ise form içindeki onSaved olan her şeyi çalıştırıyor.
           formKey.currentState!.save();
+          students.add(student);
           saveStudent();
+          Navigator.pop(context);
         }
       },
     );

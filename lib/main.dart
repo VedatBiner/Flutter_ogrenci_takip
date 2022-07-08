@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ogrenci_takip/screens/student_edit.dart';
 import 'models/student.dart';
 import 'screens/student_add.dart';
 
@@ -50,28 +51,28 @@ class _MyAppState extends State<MyApp> {
     return Column(
       children: [
         Expanded(
-            child: ListView.builder(
-                // Builder eleman sayısı kadar listeleme yapacak
-                itemCount: students.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    leading: const CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://cdn.pixabay.com/photo/2016/11/29/22/02/white-male-1871436_960_720.jpg"),
-                    ),
-                    title: Text(
-                        "${students[index].firstName} ${students[index].lastName}"),
-                    subtitle: Text(
-                        "Sınavdan aldığı not : ${students[index].grade.toString()} [${students[index].getStatus}]"),
-                    trailing: buildStatusIcon(students[index].grade),
-                    onTap: () {
-                      setState(() {
-                        selectedStudent = students[index];
-                      });
-                      print(selectedStudent.firstName);
-                    },
-                  );
-                })),
+          child: ListView.builder(
+            // Builder eleman sayısı kadar listeleme yapacak
+            itemCount: students.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                leading: const CircleAvatar(
+                  backgroundImage: NetworkImage(
+                    "https://cdn.pixabay.com/photo/2016/11/29/22/02/white-male-1871436_960_720.jpg"),
+                  ),
+                  title: Text(
+                    "${students[index].firstName} ${students[index].lastName}"),
+                  subtitle: Text(
+                    "Sınavdan aldığı not : ${students[index].grade.toString()} [${students[index].getStatus}]"),
+                  trailing: buildStatusIcon(students[index].grade),
+                  onTap: () {
+                    setState(() {
+                      selectedStudent = students[index];
+                    });
+                    print(selectedStudent.firstName);
+                  },
+                );
+              })),
         Text("Seçili Öğrenci : ${selectedStudent.firstName} ${selectedStudent.lastName}"),
         Row(
           children: [
@@ -91,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentAdd()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => StudentAdd(students)));
                 }
               ),
             ),
@@ -99,44 +100,43 @@ class _MyAppState extends State<MyApp> {
               fit: FlexFit.tight,
               flex: 2,
               child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.amberAccent,
-                    onPrimary: Colors.black,
-                  ),
-                  child: Row(
-                    children: const [
-                      Icon(Icons.update),
-                      SizedBox(width: 5.0),
-                      Text("Güncelle"),
-                    ],
-                  ),
-                  onPressed: () {
-                    var mesaj = "Güncellendi";
-                    mesajGoster(context, mesaj);
-                  }),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.amberAccent,
+                  onPrimary: Colors.black,
+                ),
+                child: Row(
+                  children: const [
+                    Icon(Icons.update),
+                    SizedBox(width: 5.0),
+                    Text("Güncelle"),
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => StudentEdit(selectedStudent)));
+                }),
             ),
             Flexible(
               fit: FlexFit.tight,
               flex: 1,
               child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.redAccent,
-                    onPrimary: Colors.black,
-                  ),
-                  child: Row(
-                    children: const [
-                      Icon(Icons.delete),
-                      SizedBox(width: 5.0),
-                      Text("Sil"),
-                    ],
-                  ),
-                  onPressed: () {
-                    setState (() {
-                      students.remove(selectedStudent);
-                    });
-                    var mesaj = "Silindi : ${selectedStudent.firstName} ${selectedStudent.lastName}";
-                    mesajGoster(context, mesaj);
-                  }),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.redAccent,
+                  onPrimary: Colors.black,
+                ),
+                child: Row(
+                  children: const [
+                    Icon(Icons.delete),
+                    SizedBox(width: 5.0),
+                    Text("Sil"),
+                  ],
+                ),
+                onPressed: () {
+                  setState (() {
+                    students.remove(selectedStudent);
+                  });
+                  var mesaj = "Silindi : ${selectedStudent.firstName} ${selectedStudent.lastName}";
+                  mesajGoster(context, mesaj);
+                }),
             ),
           ],
         ),
