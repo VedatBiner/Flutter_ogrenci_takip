@@ -23,7 +23,7 @@ BTK Akademi flutter Eğitimi
 
 Başlangıç Görüntüsü
 <BR>
-![ScreenShot](/screen_shots/img-01.png{:with="36px"})
+![ScreenShot](/screen_shots/img-01.png)
 
 Silinme mesajı
 <BR>
